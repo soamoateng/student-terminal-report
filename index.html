@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Report Generator SaaS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Input Form Section -->
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3><i class="fas fa-edit"></i> Generate Terminal Report</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="terminalReportForm">
+                            <!-- Hidden current date field -->
+                            <input type="hidden" id="issueDateHidden">
+                            
+                            <!-- School & Images -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">School Name</label>
+                                    <input type="text" class="form-control" id="schoolName" placeholder="Excellence School" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">School Logo</label>
+                                    <input type="file" class="form-control" id="schoolLogo" accept="image/*">
+                                    <small class="text-muted">Optional: PNG, JPG, GIF</small>
+                                    <div id="schoolLogo-preview" class="image-preview-container"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Academic Year</label>
+                                    <input type="text" class="form-control" id="academicYear" placeholder="2024-2025" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Academic Term</label>
+                                    <select class="form-select" id="academicTerm" required />
+                                        <option value="1st">1st Term</option>
+                                        <option value="2nd">2nd Term</option>
+                                        <option value="3rd" selected>3rd Term</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Student Name</label>
+                                    <input type="text" class="form-control" id="studentName" placeholder="Papa Ofori Yeboah" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Class</label>
+                                    <input type="text" class="form-control" id="studentClass" placeholder="Class 6" required />
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Student Photo</label>
+                                    <input type="file" class="form-control" id="studentPhoto" accept="image/*">
+                                    <small class="text-muted">Optional: PNG, JPG, GIF</small>
+                                    <div id="studentPhoto-preview" class="image-preview-container"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Subjects Section -->
+                            <h6 class="mb-3">Subjects <button type="button" class="btn btn-sm btn-outline-primary" id="addSubject">+</button></h6>
+                            <div id="subjectsContainer">
+                                <!-- Dynamic subjects will be added here -->
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success w-100 mt-4">
+                                <i class="fas fa-magic"></i> Generate Terminal Report
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Generated Terminal Report Preview -->
+        <div class="row" id="terminalReportPreview" style="display: none;">
+            <div class="col-12">
+                <div class="d-flex justify-content-between mb-3">
+                    <button class="btn btn-secondary" onclick="printTerminalReport()">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                    <button class="btn btn-outline-danger" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> New Terminal Report
+                    </button>
+                </div>
+                <div id="terminalReportContainer"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
