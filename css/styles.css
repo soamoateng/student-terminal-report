@@ -1,0 +1,220 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FIXED: Image preview containers - NO OVERFLOW EVER */
+.image-preview-container {
+    width: 100%;
+    max-width: 100%;
+    height: 90px;
+    overflow: hidden;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    margin-top: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.image-preview-container:hover {
+    border-color: #3a8eba;
+    background-color: #e3f2fd;
+}
+
+.image-preview-container img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 4px;
+}
+
+/* NEW: Remove button styling */
+.remove-image-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.remove-image-btn:hover {
+    background: #dc3545;
+    transform: scale(1.1);
+}
+
+/* Terminal Report Styles */
+.terminalreport {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.terminalreport-header {
+    background: linear-gradient(135deg, #3a8eba 0%, #2c3e50 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.terminalreport-logo {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.terminalreport-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.student-photo {
+    width: 100px;
+    height: 120px;
+    border: 3px solid white;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.student-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.terminalreport-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.student-info {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.info-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.info-item {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 5px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.terminalreport-table th {
+    background-color: #3a8eba;
+    color: white;
+    font-weight: 500;
+}
+
+.grade-a { color: #28a745; font-weight: bold; }
+.grade-b { color: #17a2b8; font-weight: bold; }
+.grade-c { color: #fd7e14; font-weight: bold; }
+.grade-f { color: #dc3545; font-weight: bold; }
+
+.result-section {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+.result-box {
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+
+.signature {
+    text-align: center;
+    width: 150px;
+}
+
+.signature-line {
+    width: 100%;
+    border-top: 1px solid #000;
+    margin-bottom: 5px;
+}
+
+.subject-row {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.subject-row .form-label {
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-bottom: 3px;
+    display: block;
+}
+
+.subject-row .form-control {
+    margin-bottom: 8px;
+}
+
+.subject-row button {
+    font-size: 0.8em;
+}
+
+@media print {
+    body * { visibility: hidden; }
+    #terminalReportContainer, #terminalReportContainer * { visibility: visible; }
+    #terminalReportContainer { position: absolute; left: 0; top: 0; width: 100%; }
+}
